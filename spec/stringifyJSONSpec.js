@@ -6,14 +6,14 @@ describe('stringifyJSON', function() {
       var expected = JSON.stringify(test);
       var result = stringifyJSON(test);
       expect(result).to.equal(expected);
-      console.log('result', result, 'expected', expected);
+      // console.log('result', result, 'expected', expected);
     });
 
     unstringifiableValues.forEach(function(obj) {
       var expected = JSON.stringify(obj);
       var result = stringifyJSON(obj);
       expect(result).to.equal(expected);
-      console.log('result', result, 'expected', expected);
+      // console.log('result', result, 'expected', expected);
     });
 
   });
