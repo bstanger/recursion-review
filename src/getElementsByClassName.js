@@ -4,28 +4,19 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
-  console.log(document.body);
-  var helperArr = [];
-  console.log(document.body.classList.value);
-  
-  if(document.body.classList.value === className) {
-    helperArr.push(document.body)
-  } 
-  
-  var searchForChildren = function(element){
-    if(element.classList.includes(className)){
-      helperArr.push(element);
-    }
-    if(element.childNodes){
-      searchForChildren(element);
+var getElementsByClassName = function(className) {
+  var helperArr = []; 
+  var searchForChildren = function(element) {    
+    if (element.classList && element.classList.contains(className)) {
+      helperArr.push(element);   
+    }    
+    if (element.childNodes) {
+      for (var i = 0; i < element.childNodes.length; i++) {
+        searchForChildren(element.childNodes[i]); 
+      }
     }
   };
   
-  
-  return helperArr
+  searchForChildren(document.body);
+  return helperArr;
 };
-
-//look for child of elements 
-//do recursion for it 
