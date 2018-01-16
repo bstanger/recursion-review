@@ -23,8 +23,6 @@ var stringifyJSON = function(obj) {
   } else if (typeof obj === 'object'){
     var outputStr = '';    
     for (var key in obj) {
-      // console.log('key ' + key);
-      // console.log('typeof key: ' + typeof(key));
       if(typeof key === 'function' || typeof obj[key] === 'function' || key === undefined || obj[key] === undefined){
         continue;
       }
